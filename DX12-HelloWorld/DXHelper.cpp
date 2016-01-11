@@ -2,6 +2,7 @@
 
 DXHelper::DXHelper() : initStatus(false), initValue(false)
 {
+	init();
 }
 
 
