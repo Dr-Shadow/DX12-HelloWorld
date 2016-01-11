@@ -9,6 +9,8 @@ class DXHelper
 private:
 	IDXGIFactory4* dxgiFactory;
 	IDXGIAdapter3* dxgiAdapter;
+	bool initStatus;
+	bool initValue;
 public:
 	DXHelper();
 	virtual ~DXHelper();

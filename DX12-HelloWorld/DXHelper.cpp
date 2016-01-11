@@ -1,6 +1,6 @@
 #include "DXHelper.h"
 
-DXHelper::DXHelper()
+DXHelper::DXHelper() : initStatus(false), initValue(false)
 {
 }
 
@@ -12,6 +12,11 @@ DXHelper::~DXHelper()
 //DXHelper::init returns true once it finds a D3D12 device and store the adapter in dxgiAdapter
 bool DXHelper::init()
 {
+	//Prevent multiple calls to this function
+	if (initStatus)
+		return initValue;
+	initStatus = true;
+
 	IDXGIAdapter3* adapter = nullptr;
 
 	//Create DXGIFactory and store it as IDXGIFACTORY4 (dxgi 1.4)
@@ -29,6 +34,7 @@ bool DXHelper::init()
 		if (SUCCEEDED(D3D12CreateDevice(adapter, D3D_FEATURE_LEVEL_11_0, __uuidof(ID3D12Device), nullptr)))
 		{
 			dxgiAdapter = adapter;
+			initValue = true;
 			return true;
 		}
 
