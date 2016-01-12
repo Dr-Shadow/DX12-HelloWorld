@@ -16,6 +16,6 @@ public:
 	virtual ~DXHelper();
 public:
 	bool init();
-	IDXGIAdapter3& getAdapter() const { return *dxgiAdapter; }
-	IDXGIFactory4& getFactory() const { return *dxgiFactory; }
+	IDXGIAdapter3& getAdapter() { return *dxgiAdapter; }
+	IDXGIFactory4& getFactory() { return *dxgiFactory; }
 };
