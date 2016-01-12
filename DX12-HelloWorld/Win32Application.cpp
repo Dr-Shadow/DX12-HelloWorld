@@ -32,7 +32,10 @@ int Win32Application::Run(DXWindow & pWindow, HINSTANCE hInstance, int nCmdShow)
 	if (pWindow.init())
 		OutputDebugString("Initialized dxwindow\n");
 	else
+	{
 		OutputDebugString("Error initializing dxwindow\n");
+		return -1;
+	}
 
 	ShowWindow(_hwnd, nCmdShow);
 
